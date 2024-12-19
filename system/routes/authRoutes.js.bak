@@ -8,6 +8,7 @@ const User = require('../models/user');
 const router = express.Router();
 
 // Twilio client setup
+const twilioClient = twilio('AC8a38f7bd09083deb5d1a8743820d042c', '25235f45a51fdd014ea21119ee1f2225');
 
 // Nodemailer transporter setup
 const transporter = nodemailer.createTransport({
