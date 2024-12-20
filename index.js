@@ -38,7 +38,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Configure MongoDB connection
-mongoose.connect('mongodb+srv://kilersbotz:kilersbotz@cluster0.o1pzaux.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('isi pakai database mongodb lu', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -286,9 +286,9 @@ passport.use(new GoogleStrategy({
 
 // Dalam strategi GitHub
 passport.use(new GitHubStrategy({
-  clientID: 'client id github',
-  clientSecret: 'secret github',
-  callbackURL: 'https://api.elxyz.me/auth/github/callback'
+  clientID: '1092582',
+  clientSecret: '03fa70a9b7805d2f445b1e788ab289d1c737a2b1',
+  callbackURL: 'https://api-wine-phi.vercel.app/auth/github/callback'
 },
 async function(accessToken, refreshToken, profile, done) {
   try {
