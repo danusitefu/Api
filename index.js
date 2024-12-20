@@ -38,7 +38,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Configure MongoDB connection
-mongoose.connect('isi pakai database mongodb lu', {
+mongoose.connect('mongodb+srv://kilersbotz:kilersbotz@cluster0.o1pzaux.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
