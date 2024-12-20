@@ -286,8 +286,8 @@ passport.use(new GoogleStrategy({
 
 // Dalam strategi GitHub
 passport.use(new GitHubStrategy({
-  clientID: '1092582',
-  clientSecret: '03fa70a9b7805d2f445b1e788ab289d1c737a2b1',
+  clientID: 'Ov23lihR97TP4nJQV4iR',
+  clientSecret: '5012b569edaf01ef9a02a07c3be3b24f30538342',
   callbackURL: 'https://api-wine-phi.vercel.app/auth/github/callback'
 },
 async function(accessToken, refreshToken, profile, done) {
