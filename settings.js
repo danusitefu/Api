@@ -2,7 +2,7 @@ const axios = require('axios');
 // semua settings di sini 
 // hallo
 const options = {
-  creator: "KiiCode - Muhammad Zaki",
+  creator: "Danukiding",
   port: 8080,
   limit: 1000,
   
