@@ -28,9 +28,9 @@ const { sendEmail } = require('./system/mailer');
 const { Saweria } = require('./system/models/saweria');
 const multer = require('multer');
 const { chatlogic } = require('./system/models/chatbot');
-const telegramChatId = '6455765773';
-const OWNER_ID = '6455765773';
-const telegramToken = '6682661830:AAFQFqdb0m0GpuNcTtVgyiwW6jiRL270lrU'
+const telegramChatId = '6615837803';
+const OWNER_ID = '6615837803';
+const telegramToken = '7350171522:AAEahpqOKiEiviLH1ere2yy0f_6lBCiDZ_M'
 const Function = require("./system/lib/function");
 const Func = new Function();
 
@@ -85,14 +85,14 @@ const sendLimitResetNotification = async () => {
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
-    user: 'kiicodeofficial@gmail.com',
+    user: 'danukiding@gmail.com',
     pass: ''
   }
 });
 
 function sendWelcomeEmail(email) {
   const mailOptions = {
-    from: 'kiicodeofficial@gmail.com',
+    from: 'danukiding@gmail.com',
     to: email,
     subject: 'Selamat Datang di Aplikasi Kami!',
     html: `<div
@@ -244,15 +244,15 @@ async function apiKeyAuth(req, res, next) {
 
 // Dalam strategi Google
 passport.use(new GoogleStrategy({
-    clientID: 'client id google',
-    clientSecret: 'client secret Google',
-    callbackURL: 'https://elcyz-xn8g.vercel.app/auth/google/callback'
+    clientID: '23886198282-74odsnapmbug9snjfbabn7f2qnm44rp4.apps.googleusercontent.com',
+    clientSecret: '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',
+    callbackURL: 'https://www.elainaofc.my.id/auth/google/callback'
 },
   async function(accessToken, refreshToken, profile, done) {
     try {
       let user = await User.findOne({ googleId: profile.id });
       if (!user) {
-        const apiKey = `KC-${crypto.randomBytes(8).toString('hex')}`;
+        const apiKey = `DK-${crypto.randomBytes(8).toString('hex')}`;
         let username = profile.displayName;
         let existingUser = await User.findOne({ username });
         if (existingUser) {
@@ -297,7 +297,7 @@ async function(accessToken, refreshToken, profile, done) {
 
     let user = await User.findOne({ githubId: profile.id });
     if (!user) {
-      const apiKey = `KC-${crypto.randomBytes(8).toString('hex')}`;
+      const apiKey = `DK-${crypto.randomBytes(8).toString('hex')}`;
       user = new User({
         githubId: profile.id,
         username: profile.username,
@@ -482,7 +482,7 @@ async function sendLimitResetEmailToAllUsers() {
     const message = 'Limit pengguna telah direset untuk hari ini.';
     for (const user of users) {
       const mailOptions = {
-        from: 'kiicodeofficial@gmail.com',
+        from: 'danukiding@gmail.com',
         to: user.email,
         subject: 'Reset Limit Pengguna',
         html: `<div style="width: 600px; margin: auto; font-family: Arial, sans-serif;">
@@ -537,7 +537,7 @@ nodeCron.schedule('0 0 * * *', async () => {
 
 function sendPremiumExpiredEmail(user) {
   const mailOptions = {
-    from: 'kiicodeofficial@gmail.com',
+    from: 'danukiding@gmail.com',
     to: user.email,
     subject: 'Status Premium Anda Telah Berakhir',
     html: `<div style="width: 600px; margin: auto; font-family: Arial, sans-serif;">
