@@ -125,6 +125,29 @@ const bot = new TelegramBot(telegramBotToken, { polling: true });
 
 // Middleware untuk mengirim pesan ke Telegram
 
+router.get('/ai/texttoimg', checkAllowedIP, checkApiKey, async (req, res) => {
+  const { prompt } = req.query;
+  if(!prompt) {
+    return res.json(Func.resValid('parameter prompt tolong di isi!'))
+  }
+  try {
+    const respon = await axios.get(`https://imgen.duck.mom/prompt/${prompt}`, { responseType: 'arraybuffer'});
+    const buffer = Buffer.from(respons.data, 'binary');
+    const base64 = buffer.toString('base64')
+    const from = new FormData();
+    from.append('file', buffer, {
+      filename: 'texttoimg.png',
+      contentType: 'image/png'
+    })
+    const data = await axios.post('https://cdn.elxyzgpt.xyz/', from, {
+      headers: from.getHeaders()
+    })
+    const result = data.data.fileUrl
+    res.json(Func.resSukses(result))
+  } catch (e) {
+    res.json(Func.resValid( { message: e }))
+  }
+})
 
 
 router.get('/sendmessage', checkApiKey, async (req, res) => {
